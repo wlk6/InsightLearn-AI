@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="assets/css/date.css" />
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<link href="https://cdn.bootcss.com/font-awesome/5.7.2/css/all.min.css" rel="stylesheet">
+<link href="assets/css/slidercaptcha.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/responsive.css">
+<script src="assets/js/date.js" type="text/javascript" charset="utf-8"></script>
+
+<style>
+  .slidercaptcha {
+      margin: 0 auto;
+      width: 314px;
+      height: 286px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+      margin-top: 40px;
+  }
+
+      .slidercaptcha .card-body {
+          padding: 1rem;
+      }
+
+      .slidercaptcha canvas:first-child {
+          border-radius: 5px;
+          border: 1px solid #e6e8eb!important;
+      }
+
+      .slidercaptcha.card .card-header {
+          background-image: none;
+          background-color: rgba(0, 0, 0, 0.03);
+      }
+
+      .refreshIcon {
+          top: -54px;
+      }
+      .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          padding-top: 100px;
+          left: 0;
+          top: 0;
+        width: 100%; 
+        height: 100%;
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.2); 
+      }
+</style>
+</head>
+<body>
+<!-- 开始预加载 -->
+<div class="block-1"></div>
+<div class="block-2"></div>
+<div class="logo-load"><img src="assets/img/logo1.svg" alt=""></div>
+<div class="logo-load spinning"></div>
+<!-- 结束预加载 -->
+<!-- Start Header -->
+<header>
+  <nav><!-- Logo -->
+    <div class="logo hover-target"><a class="load-spiral" href="modify.html"><img src="assets/img/logo.svg" alt="logo"></a></div>
+    <!-- Menu bar -->
+    <div class="toggle-btn magnetic hover-target">
+      <div class="burger-menu"><span class="one"></span><span class="two"></span><span class="tre"></span></div>
+    </div>
+    <!-- Social -->
+    <div class="scr socials">
+      <div class="list-social">
+        <ul>
+          <li class="hover-target"><a href="#">COUSE.</a></li>
+          <li class="hover-target"><a href="#">R.</a></li>
+          <li class="hover-target"><a href="#">Q.</a></li>
+          <li class="hover-target"><a href="#">A.</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-nav"></div>
+    <!-- menu -->
+    <div class="manu-container">
+      <div class="menu">
+        <div class="data">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="links text-center text-lg-left">
+                  <ul>
+                    <li>
+                      <p>01</p>
+                      <a class="menu-link hover-target load-spiral" href="index-2.html">收藏</a></li>
+                    <li>
+                      <p>02</p>
+                      <a class="menu-link hover-target load-spiral" href="index-3.html">喜欢</a></li>
+                    <li>
+                      <p>03</p>
+                      <a class="menu-link hover-target load-spiral" href="work.html">浏览记录</a></li>
+                    <li>
+                      <p>04</p>
+                      <a class="menu-link hover-target load-spiral" href="work-detail.html">离线缓存</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- End Header --><!-- Start Content -->
+<div id="spiral"><!-- Header -->
+  <div class="scrolls"><img draggable="false" src="assets/img/sroll.svg" alt="scroll"></div>
+  <div class="main-head">
+    <div id="headmove">  
+    </div>
+    <div class="heading-text">
+      <div class="heading">
+        <!-- 头像 -->
+        <div class="avatar">
+          <div id="previewContainer">
+              <img id="previewImage" src="assets\img\avatar1.jpg" alt="Avatar Preview">
+              
+          </div>
+          <button id="avat">选择头像</button>
+          <div class="inputAvatar"style="display:none;">
+              <div id="presetAvatars">
+                <img src="assets\img\avatar1.jpg" alt="Preset Avatar 1" onclick="selectPresetAvatar('avatar1.jpg')">
+                  <img src="assets\img\avatar2.jpg" alt="Preset Avatar 1" onclick="selectPresetAvatar('avatar2.jpg')">
+                  <img src="assets\img\avatar3.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar3.jpg')">
+                  <img src="assets\img\avatar4.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar4.jpg')">
+                  <img src="assets\img\avatar5.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar5.jpg')">
+                  <img src="assets\img\avatar6.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar6.jpg')">
+                  <img src="assets\img\avatar7.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar7.jpg')">
+                  <img src="assets\img\avatar8.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar8.jpg')">
+                  <img src="assets\img\avatar9.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar9.jpg')">
+                  <img src="assets\img\avatar10.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar10.jpg')">
+                  <img src="assets\img\avatar11.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar11.jpg')">
+                  <img src="assets\img\avatar12.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar12.jpg')">
+                  <img src="assets\img\avatar13.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar13.jpg')">
+                  <img src="assets\img\avatar14.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar14.jpg')">
+                  <img src="assets\img\avatar15.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('avatar15.jpg')">
+                  <!-- <img src="assets\img\avatar16.jpg" alt="Preset Avatar 2" onclick="selectPresetAvatar('assets\\img\\avatar16.jpg')"> -->
+
+              </div>
+              <p id="uploadingMessage" style="display: none;">正在上传...</p>
+          <label for="avatarInput"data-text="更 换 头 像">
+              <input type="file" accept="image/*" id="avatarInput" onchange="previewAvatar(this)" placeholder="更换头像">
+          </label>
+          </div>
+      </div>
+        <div class="info"> 
+          <!-- 选项 -->
+          <div class="info-cho">
+            <div class="cho active" id="cho1">修改个人信息</div>
+            <div class="cho" id="cho2">修改密码</div>
+          </div>
+          <!-- 修改个人信息 -->
+          <div class="info-details" style="display: block;" id="info1">
+            <!-- 用户名 -->
+            <div class="det">
+              <div class="det1"><label for="nickname">用户名：</label></div>
+              <div class="det2"><input class="dets" id="nickname" type="text"maxlength="13"placeholder="请输入用户名"/>
+              <div class="ipl" id="ipl3"></div>
+              </div>
+            </div>
+            <!-- 电话 -->
+            <div class="det">
+              <div class="det1"><label for="nicktel">电话：</label></div>
+              <div class="det2"><input class="dets" id="nicktel" type="text"placeholder="请输入手机号"disabled="disabled" autocomplete="off"/>
+                <div class="ipl"id="ipl1"></div></div>
+            </div>
+            <!-- 邮箱 -->
+            <div class="det">
+              <div class="det1"><label for="nickem">邮箱：</label></div>
+              <div class="det2"><input class="dets" id="nickem" type="text"placeholder="请输入邮箱"disabled="disabled" autocomplete="off"/>
+                <div class="ipl"id="ipl2"></div></div>
+            </div>
+            <!-- 验证码 -->
+            <div class="det">
+              <div class="det1 modifypwd"><button id="sendyzm">发送邮箱验证码：</button></div>
+              <div class="det2" style="width: 250px;"><input class="dets" id="pwdyzm" type="text" placeholder="请输入验证码" />
+              <div class="ipl" id="ipl6"></div></div>
+            </div>
+            <!-- 性别 -->
+            <div class="gender">
+                <div class="det1">性别：</div>
+                <div class="det3">
+                  <span>
+                  <input type="radio" id="contactChoice1" name="contact" value="female" />
+                  <label for="contactChoice1">男</label>
+                  </span>
+                  <span>
+                  <input type="radio" id="contactChoice2" name="contact" value="male" />
+                  <label for="contactChoice2">女</label>
+                  </span>
+                  <span>
+                  <input type="radio" id="contactChoice3" name="contact" value="fema" checked/>
+                  <label for="contactChoice3">保密</label>
+                  </span>
+                </div>
+            </div>
+            <!-- 出生日期 -->
+            <div class="det">
+              <label class="det1"for="inputdate">出生日期：</label>
+              <div id='date'>
+                <input type="text" value='' placeholder="点击选择时间" id='inputdate'readonly="true" />
+              </div>
+            </div>
+            <!-- 地址 -->
+            <div class="address">
+              <div class="ads1">地址：</div>
+              <div class="ads2">
+                <form class="form-inline">
+                  <div data-toggle="distpicker">
+                    <div class="form-group">
+                      <label class="sr-only" for="province1">省</label>
+                      <select class="form-control" id="province1"></select>
+                    </div>
+                    <div class="form-group">
+                      <label class="sr-only" for="city1">市</label>
+                      <select class="form-control" id="city1"></select>
+                    </div>
+                    <div class="form-group">
+                      <label class="sr-only" for="district1">区/县</label>
+                      <select class="form-control" id="district1"></select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- 简介 -->
+            <div class="abs">
+              <div class="abs1"><label for="abstract">简介：</label></div>
+              <div class="det4">
+                <textarea id="abstract" name="abstract"rows="3" cols="50"maxlength="50" placeholder="请简单介绍自己！"></textarea>
+                <div class="abs2"><span id="textCount">0</span>/50</div>
+              </div>
+            </div>
+            <div class="save"><button id="save"><span>保存</span></button></div>
+              <script type="text/javascript">
+                var d = new DateJs({
+				        inputEl: '#inputdate',
+				        el: '#date'
+			          })
+              </script>
+              <div class="ismodified"style="display: none;"></div>
+          </div>
+            <!-- 修改密码 -->
+            <div class="info-details" style="display: none;" id="info2">
+              <div class="progress">
+                <div class="step1" id="step1">
+                  <div class="num"><img src="assets/img/step1.png" alt="" id="img1"style="filter: invert(100%) sepia(23%) saturate(2889%) hue-rotate(203deg) brightness(113%) contrast(106%);"/></div>
+                  <div class="step" id="text1">验证身份</div>
+                </div><span id="pgs1"></span>
+                <div class="step1" id="step2">
+                  <div class="num"><img src="assets/img/step2.png" alt="" id="img2"style="filter: invert(100%) sepia(23%) saturate(2889%) hue-rotate(203deg) brightness(113%) contrast(106%);"placeholder="设置6-16位字母数字下划线组合"/></div>
+                  <div class="step"  id="text2">修改密码</div>
+                </div><span id="pgs2"></span>
+                <div class="step1" id="step3">
+                  <div class="num"><img src="assets/img/step3.png" alt="" id="img3"style="filter: invert(100%) sepia(23%) saturate(2889%) hue-rotate(203deg) brightness(113%) contrast(106%);"aria-placeholder="再次输入密码"/></div>
+                  <div class="step"  id="text3">改密成功</div>
+                </div>
+              </div>
+              <!-- 第一步 -->
+              <div class="stepdetails" style="display: block;" id="stepdet1">
+                <div class="det">
+                  <div class="det1 modifypwd"><label for="pwdem">邮箱地址：</label></div>
+                  <div class="det2" style="width: 250px;"><input class="dets" id="pwdem" type="text" placeholder="请输入邮箱" disabled="disabled" autocomplete="off"/></div>
+                </div>
+                <div class="det">
+                  <div class="det1 modifypwd"><button id="sendyzmm">发送邮箱验证码：</button></div>
+                  <div class="det2" style="width: 250px;"><input class="dets" id="pwdyzmm" type="text" placeholder="请输入验证码" />
+                  <div class="ipl" id="ipl6"></div></div>
+                </div>
+                <button id="next1"><span>下一步</span></button>
+              </div>
+              <!-- 第二步 -->
+              <div class="stepdetails" style="display: none;" id="stepdet2">
+                <div class="det">
+                  <div class="det1"><label for="newpwd">新的密码：</label></div>
+                  <div class="det2"><input class="dets" id="newpwd" type="text"placeholder="设置6-16位字母数字下划线组合"/>
+                    <div class="ipl" id="ipl4"></div></div>
+                </div>
+                <div class="det">
+                  <div class="det1"><label for="concernpwd">确认密码：</label></div>
+                  <div class="det2"><input class="dets" id="concernpwd" type="text"placeholder="再次输入密码"/>
+                    <div class="ipl" id="ipl5"></div></div>
+                </div>
+                <button id="next2"><span>下一步</span></button>
+                <div id="myModal" class="modal">
+                  <div class="container-fluid">
+                      <div class="form-row">
+                          <div class="col-12">
+                              <div class="slidercaptcha card"style="background-color: #fff;">
+                                  <div class="card-header"style="height:50px;">
+                                      <span style="color:black;top: 20px !important;;">请完成安全验证</span>
+                                  </div>
+                                  <div id="card-body" ><div id="captcha"></div></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+              <!-- 第三步 -->
+              <div class="stepdetails" style="display: none;" id="stepdet3">
+                <div style="width:35vw;">
+                  <p>修改登录密码成功！</p><br>
+                  <p>为了您的账号安全，改密成功后，将全网注销退出，请重新登录！</p>
+                  <img src="assets\img\logout.png" style="width:323.7px;height:227.7px;">
+                </div>
+                <button id="next3"><span>重新登陆</span></button>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+</div>
+
+<!-- End Content --><!-- Toggle menu -->
+<div class="menus">
+  <a class="hover-target" href="../../oo/index.html">首页</a>
+  <a class="hover-target" href="about.html">个人中心</a>
+  <a class="hover-target" href="index-2.html">收藏</a>
+  <a class="hover-target" href="index-3.html">喜欢</a>
+  <a class="hover-target" href="work.html">浏览记录</a>
+  <a class="hover-target" href="work-detail.html">离线缓存</a>
+  <button class="hover-target rm"id="byebye">退出登录</button>
+</div>
+<div class="menu__toggler hover-target magnetic"><span></span></div>
+<script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+<script src="assets/js/distpicker.data.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/js/longbow.slidercaptcha.js"></script>
+<script src="assets/js/distpicker.js"></script>
+<script src="assets/js/plugin.js"></script>
+<script src="assets/js/avatar.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/textarea.js"></script>
+<script src="assets/js/modify.js" type="text/javascript"></script>
+<script>
+ $(document).ready(function() {
+  var stepdet2=document.getElementById('stepdet2');
+  var newpwd=document.getElementById("newpwd");
+  var consernpwd=document.getElementById('concernpwd');
+    var modal = document.getElementById("myModal");
+    var next2 = document.getElementById("next2");
+    var stepdet3=document.getElementById('stepdet3');
+    var flag = false;
+let pwdyzm = document.querySelector('#pwdyzm')
+const token=localStorage.getItem('token');
+    next2.onclick = function() {
+        if (flag) {
+          axios({
+            url:'http://49.234.190.148:8888/Login/alterPasswordView/',
+            method:'POST',
+            headers:{
+              'token': token
+            },
+            data:{
+              password:newpwd.value,
+              password_confirm:consernpwd.value,
+              code:pwdyzmm.value
+            }
+          }).then(result=>{
+            if (result.data.code >= 200 && result.data.code <= "300"){
+              stepdet2.style.display='none';
+              stepdet3.style.display='block';
+          var img2=document.getElementById("img2");
+          img2.style.filter="invert(62%) sepia(13%) saturate(6480%) hue-rotate(320deg) brightness(109%) contrast(94%)";
+          var text2=document.getElementById("text2");
+          text2.style.color="#F96C6C";
+          var pgs2=document.getElementById('pgs2');
+          pgs2.style.background='-webkit-linear-gradient(90deg, #f96c6c,#f55151)';
+          pgs2.style.background='linear-gradient(90deg, #f96c6c,#f55151)';
+          setTimeout(() => {
+            localStorage.removeItem('userData');
+            localStorage.removeItem('token');
+            localStorage.removeItem('isLoggedIn');
+            // window.location.href = "../../login/log/log.html";
+        }, 5000)
+            }
+          }).catch(error=>{
+            console.error("Error:",error);
+          })
+          
+        } else {
+            modal.style.display = "block";
+        }
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    $('#captcha').sliderCaptcha({
+        repeatIcon: 'fa fa-redo',
+        setSrc: function () {
+            // return 'http://pocoafrro.bkt.clouddn.com/Pic' + Math.round(Math.random() * 136) + '.jpg';
+        },
+        onSuccess: function () {
+          flag=true;
+          $('.sliderContainer').addClass('sliderContainer_success');
+            setTimeout(function() {
+                modal.style.display = "none";
+            }, 1000);
+        }
+    });
+});
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (!isLoggedIn) {
+           window.location.href = "../../login/log/log.html";
+          }
+    });
+  </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const logoutButton = document.getElementById('byebye');
+  logoutButton.addEventListener('click', function() {
+    localStorage.removeItem('userData');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('token');
+    window.location.href = "../../login/log/log.html";
+  });
+});
+</script>
+
+</body>
+</html>

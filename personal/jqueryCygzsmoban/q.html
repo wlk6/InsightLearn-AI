@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style id="animationStyle">
+        .loader {
+            border: 5px solid white;
+            border-radius: 50%;
+            border-top: 5px solid rgb(211, 233, 255);
+            width: 20px;
+            height: 20px;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        background-color: #4B70E2;
+    }
+
+    .chat-input {
+        width: 750px;
+        display: flex;
+        padding: 10px;
+        background-color: #f5f5f5;
+    }
+
+    .chat-input input[type="text"] {
+        flex: 1;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+    }
+
+    .chat-input button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .chat-input button:hover {
+        background-color: #0056b3;
+    }
+
+    .user-message {
+        background-color: #d3e9ff;
+        align-self: flex-end;
+    }
+
+    .bot-message {
+        background-color: #f0f0f0;
+    }
+</style>
+
+<body>
+    <div style="margin-top: 50px;width: 1000px;height: 50px;margin:50px auto 0 auto;line-height: 50px;color: white;">
+        <!-- <img src="image/robot.png" style="display: block;float: left;height: 50px;"> -->
+        <div style="float: left;margin-left: 0px;font-family: '微软雅黑';font-size: 30px;">智能问答 | 为您提供咨询服务</div>
+    </div>
+    <div style="width: 1000px;margin:0 auto;background-color:#ecf0f3;overflow: hidden; border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" class="con">
+        <div style="max-width: 770px;max-height: 500px;float: left;background-color:#ecf0f3;overflow-y: auto;overflow-x:hidden;"
+            id="chatMessages">
+            <div style="margin-top: 20px; width: 1000px;height: 40px;">
+                <img src="../../oo/image/robot2.png" style="display: block;float: left;height:40px;margin-right: 5px;"
+                    alt="">
+                <div style=" height: 40px;float: left;line-height: 40px;margin-left: 0px;background-color:rgb(211, 233, 255);padding: 0px 10px;border-radius: 15px 15px;width: 433px;"
+                    class="bt">您好呀，智能小助手很高兴为您服务，请问有什么可以帮到您</div>
+            </div>
+        </div>
+        <div style="width: 230px;height: 500px;float: right;background-color: white;" id="lsjl-c">
+            <h2 style="margin-top: 15px;margin-left: 10px;">历史记录</h2>
+            <!-- <div style="width: 205px;margin: 10px auto;border-radius: 15px;background-color: #4B70E2;height: 45px;padding-left: 5px;line-height: 45px;" id="lsjl">
+                
+            </div> -->
+        </div>
+        <div style="width: 1000px;height: 70px;margin: 0 auto;background-color: white;margin-top: 500px;">
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button onclick="sendMessage()" class="send">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/marked/0.3.17/marked.min.js"></script>
+    <script>
+        var textElement = document.querySelector('.bt');
+        var textContent = textElement.innerHTML;
+        textElement.innerHTML = '';
+        var index = 0;
+        var timer = setInterval(function () {
+            textElement.innerHTML += textContent[index];
+            index++;
+            if (index >= textContent.length) {
+                clearInterval(timer); // 停止定时器
+            }
+        }, 50); // 每50毫秒显示一个字符，你可以调整这个值来控制显示速度
+
+        var t = 0
+        const token = localStorage.getItem('token');
+        const email = localStorage.getItem('email');
+        var m1;
+        function sendMessage() {
+            var userInput = document.getElementById("userInput");
+            var m = userInput;
+            const token = localStorage.getItem('token');
+            var userInput = document.getElementById("userInput");
+            var message = userInput.value.trim();
+
+            if (message === "") return;
+
+            addMessage(message, true);
+            userInput.value = "";
+            function addMessage(text, isUser) {
+
+                var chatMessages = document.getElementById("chatMessages");
+                var messageElement = document.createElement("div");
+                var userInput = document.getElementById("userInput");
+                var m = userInput.value;
+                m1 = m;
+                var selectedAvatar;
+                if (localStorage.getItem('selectedAvatar') == null) {
+                    selectedAvatar = '../../oo/image/defaulthead.png';
+                } else {
+                    selectedAvatar = localStorage.getItem('selectedAvatar');
+                }
+                messageElement.classList.add("message");
+                messageElement.classList.add(isUser ? "user-message" : "bot-message");
+                messageElement.innerHTML = `<div style="float: right;width: 450px;margin-top:15px;margin-bottom: 15px;padding-right: 2px;">
+    <img src="${selectedAvatar}" style="display: block;height:40px;float: right;margin-left: 6px;"> 
+    <div style="word-wrap: break-word;overflow-wrap: break-word;float: right;max-width: 380px;background-color:rgb(211, 233, 255);padding:10px 10px;border-radius: 15px 15px;">${m}</div>
+</div>`;
+
+
+                chatMessages.appendChild(messageElement);
+
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight
+
+                var div = document.createElement("div");
+                var divv = document.getElementById('lsjl-c')
+                if (t != 8) {
+                    var m = userInput.value
+                    div.innerHTML =
+                        `<div class="l" style="border-radius: 15px;overflow:hidden;text-overflow: ellipsis;padding-left: 5px;line-height: 45px; width: 205px;margin: 10px auto;background-color: #4B70E2;height: 45px;white-space: nowrap;" id="lsjl">${userInput.value}</div>`
+                    t++
+                    divv.appendChild(div)
+                    div.style.cursor = 'pointer';
+                    div.onclick = function () {
+                        var l = document.querySelector('.l')
+                        userInput.value = m;
+                    }
+                }
+                if (t == 8) {
+                    divv.removeChild(divv.childNodes[3])
+                    t--
+                    div.innerHTML = `<div style="border-radius: 15px;overflow:hidden;padding-left: 5px;line-height: 45px; width: 205px;margin: 10px auto;background-color: #4B70E2;height: 45px;" id="lsjl">
+                      ${userInput.value}
+             </div>`
+                    divv.appendChild(div)
+                    t++;
+                }
+
+            }
+            var m1;
+            var chatMessages = document.getElementById("chatMessages");
+            var messageElement = document.createElement("div");
+
+            var hd = document.createElement("div");
+            var userInput = document.getElementById("userInput");
+            var m = userInput.value;
+            //  var z= marked(result.message);
+            messageElement.style.float = 'left';
+            messageElement.style.overflow = 'hidden';
+            messageElement.style.width = '520px';
+            messageElement.style.marginTop = '15px';
+            var imgg = document.createElement("img");
+            imgg.src = "../../oo/image/robot2.png";
+            imgg.style.display = 'block';
+            imgg.style.height = '40px';
+            imgg.style.float = 'left';
+            hd.className = 'loader';
+            var spann = document.createElement("span");
+            spann.innerHTML = '小助手正在努力思考中...';
+            //  spann.style.fontSize = '12px';
+            spann.style.display = 'inline-block';
+            spann.style.marginTop = '10px';
+            spann.style.marginLeft = '10px';
+            //  spann.style.height = '20px';
+            //  spann.style.lineHeight = '20px';
+            hd.style.float = 'left';
+            hd.style.marginLeft = '5px';
+            hd.style.marginTop = '5px';
+            function ys0() {
+                messageElement.appendChild(imgg);
+                chatMessages.appendChild(messageElement);
+            }
+            var delay0 = 1000;
+            setTimeout(ys0, delay0);
+            function ys() {
+
+                messageElement.appendChild(hd);
+                messageElement.appendChild(spann);
+                chatMessages.appendChild(messageElement);
+            }
+            var delay = 1500;
+            setTimeout(ys, delay);
+            axios({
+                url: 'http://49.234.190.148:8888/course/generate_answer/',
+                headers: { 'token': `${token}` },
+                method: 'POST',
+                data: {
+                    question: m1,
+                }
+            }).then(result => {
+                setTimeout(function () {
+                    addMessage1();
+                }, 500);
+
+
+                function addMessage1() {
+                    var tzhd = document.createElement("div");
+                    tzhd.style.height = '25px';
+                    tzhd.style.backgroundColor = 'rgb(211, 233, 255)';
+                    tzhd.style.width = '100px';
+                    tzhd.style.cursor = 'pointer';
+                    tzhd.style.textAlign = 'center';
+                    tzhd.style.fontSize = '13px';
+                    tzhd.innerHTML = `
+                    停止回答`;
+                    // tzhd.style.marginTop='100px';
+                    // tzhd.style.marginLeft = '45px';
+                    tzhd.style.borderRadius = '10px';
+                    tzhd.style.lineHeight = '25px';
+                    tzhd.style.position = 'absolute';
+                    tzhd.style.bottom = '0';
+                    tzhd.style.left = '45px';
+                    //  var z= marked(result.message);
+                    // spann.style.color = 'red';
+                    // spann.style.width = '80px';
+                    // spann.style.display = 'inline-block';
+                    // spann.style.fontSize = '13px';
+                    // spann.innerHTML = '停止回答';
+                    // spann.style.display = 'inline-block';
+                    // spann.style.marginLeft = '2px';
+                    spann.innerHTML = '';
+                    messageElement.style.float = 'left';
+
+                    messageElement.style.width = '520px';
+                    messageElement.style.marginTop = '15px';
+                    var imgg = document.createElement("img");
+                    imgg.src = "../../oo/image/robot2.png";
+                    imgg.style.display = 'block';
+                    imgg.style.height = '40px';
+                    imgg.style.float = 'left';
+                    const htmltext = marked(result.data.data);
+                    messageElement.style.overflow = 'hidden';
+                    hd.classList.remove("loader");
+                    hd.innerHTML = htmltext;
+                    hd.style.wordWrap = 'break-word';
+                    hd.style.overflowWrap = 'break-word';
+                    hd.style.maxWidth = '440px';
+                    hd.style.backgroundColor = 'rgb(211, 233, 255)';
+                    hd.style.padding = '10px 10px';
+                    hd.style.borderRadius = '15px 15px';
+                    hd.style.float = 'left';
+                    hd.style.marginLeft = '5px';
+
+                    hd.style.marginBottom = '30px';
+                    //  messageElement.appendChild(tzhd);
+                    messageElement.style.position = 'relative';
+                    //      messageElement.innerHTML = `<div style="float: left;width: 520px;margin-top:15px;margin-bottom: 15px;">
+                    // <img src="../../oo/image/robot2.png"  style="display: block;height:40px;float: left;"> 
+                    // ${hd}
+                    // </div>`;
+
+
+                    messageElement.appendChild(tzhd);
+                    var hdd = hd.innerText;
+                    hd.innerHTML = '';
+                    var index = 0;
+                    var timer = setInterval(function () {
+                        // 逐个添加字符
+                        hd.innerHTML += hdd[index];
+                        index++;
+                        let chat = document.getElementById("chatMessages");
+                        chat.scrollTop = chat.scrollHeight;
+                        // 判断是否已经显示完所有字符
+                        if (index >= hdd.length) {
+                            clearInterval(timer); // 停止定时器
+                            tzhd.style.display = 'none';
+
+                        }
+                    }, 50);
+
+                    tzhd.onclick = function () {
+                        tzhd.innerHTML = `
+                    欢迎继续提问~`;
+                        clearInterval(timer);
+                        // tzhd.style.display = 'none';
+                    };
+
+                    // Scroll to bottom
+
+                }
+
+                //    // 获取容器和盒子元素
+                //     const container = document.querySelector('.con');
+                //     const box = chatMessages;
+
+                //     // 监听盒子大小变化
+                //     const observer = new MutationObserver(scrollToBottom);
+                //     observer.observe(box, { attributes: true, attributeFilter: ['style'] });
+
+                //     // 自动滚动到最底部函数
+                //     function scrollToBottom() {
+                //         container.scrollTop = container.scrollHeight;
+                //     }
+
+                //     // 模拟盒子高度变化
+                //     setTimeout(() => {
+                //         box.style.height = '100px'; // 改变盒子高度
+                //     }, 2000);
+
+
+            }).catch(error => {
+                addMessage1();
+                function addMessage1() {
+                    //  var chatMessages = document.getElementById("chatMessages");
+                    //  var messageElement = document.createElement("div");
+                    //  var userInput = document.getElementById("userInput");
+                    //  var m = userInput.value;
+                    //      messageElement.innerHTML = `<div style="float: left;width: 450px;margin-top:15px;margin-bottom: 15px;">
+                    // <img src="../../oo/image/robot2.png"  style="display: block;height:40px;float: left;"> 
+                    //  <div style="word-wrap: break-word;overflow-wrap: break-word;float: left;max-width: 380px;background-color:gray;padding:10px 10px;border-radius: 15px 15px;color: white;">${error.message}</div><span style="color: red;font-size: 30px;">!<span>
+                    // </div>`;
+                    //      chatMessages.appendChild(messageElement);
+                    //  var chatMessages = document.getElementById("chatMessages");
+                    //     var messageElement = document.createElement("div");
+                    //      var spann = document.createElement("span");
+                    //     var hd = document.createElement("div");
+                    //     var userInput = document.getElementById("userInput");
+                    //     var m = userInput.value;
+                    //  var z= marked(result.message);
+                    var tzhd = document.createElement("div");
+                    tzhd.style.height = '25px';
+                    tzhd.style.backgroundColor = 'rgb(211, 233, 255)';
+                    tzhd.style.width = '100px';
+                    tzhd.style.cursor = 'pointer';
+                    tzhd.style.textAlign = 'center';
+                    tzhd.style.fontSize = '13px';
+                    tzhd.innerHTML = `
+                    停止回答`;
+                    // tzhd.style.marginTop='100px';
+                    // tzhd.style.marginLeft = '45px';
+                    tzhd.style.borderRadius = '10px';
+                    tzhd.style.lineHeight = '25px';
+                    tzhd.style.position = 'absolute';
+                    tzhd.style.bottom = '0';
+                    tzhd.style.left = '45px';
+                    //  var z= marked(result.message);
+                    // spann.style.color = 'red';
+                    // spann.style.width = '80px';
+                    // spann.style.display = 'inline-block';
+                    // spann.style.fontSize = '13px';
+                    // spann.innerHTML = '停止回答';
+                    // spann.style.display = 'inline-block';
+                    // spann.style.marginLeft = '2px';
+                    spann.innerHTML = '';
+                    messageElement.style.float = 'left';
+
+                    messageElement.style.width = '520px';
+                    messageElement.style.marginTop = '15px';
+                    var imgg = document.createElement("img");
+                    imgg.src = "../../oo/image/robot2.png";
+                    imgg.style.display = 'block';
+                    imgg.style.height = '40px';
+                    imgg.style.float = 'left';
+                    const htmltext = marked(error.message);
+                    messageElement.style.overflow = 'hidden';
+                    hd.classList.remove("loader");
+                    hd.innerHTML = htmltext;
+                    hd.style.wordWrap = 'break-word';
+                    hd.style.overflowWrap = 'break-word';
+                    hd.style.maxWidth = '440px';
+                    hd.style.backgroundColor = 'rgb(211, 233, 255)';
+                    hd.style.padding = '10px 10px';
+                    hd.style.borderRadius = '15px 15px';
+                    hd.style.float = 'left';
+                    hd.style.marginLeft = '5px';
+
+                    hd.style.marginBottom = '30px';
+                    //  messageElement.appendChild(tzhd);
+                    messageElement.style.position = 'relative';
+                    //      messageElement.innerHTML = `<div style="float: left;width: 520px;margin-top:15px;margin-bottom: 15px;">
+                    // <img src="../../oo/image/robot2.png"  style="display: block;height:40px;float: left;"> 
+                    // ${hd}
+                    // </div>`;
+
+
+                    messageElement.appendChild(tzhd);
+                    var hdd = hd.innerText;
+                    hd.innerHTML = '';
+                    var index = 0;
+                    var timer = setInterval(function () {
+                        // 逐个添加字符
+                        hd.innerHTML += hdd[index];
+                        index++;
+                        let chat = document.getElementById("chatMessages");
+                        chat.scrollTop = chat.scrollHeight;
+                        // 判断是否已经显示完所有字符
+                        if (index >= hdd.length) {
+                            clearInterval(timer); // 停止定时器
+                            tzhd.style.display = 'none';
+
+                        }
+                    }, 50);
+
+                    tzhd.onclick = function () {
+                        tzhd.innerHTML = `
+                    欢迎继续提问~`;
+                        clearInterval(timer);
+                        // tzhd.style.display = 'none';
+                    };
+
+                    // Scroll to bottom
+
+                }
+
+                //    //
+                console.error('发送失败', error)
+            })
+
+        }
+        document.getElementById('userInput').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });       
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+
+</html>

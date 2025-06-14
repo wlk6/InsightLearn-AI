@@ -1,0 +1,346 @@
+.recommendate{
+  margin:0 auto;
+  width:1200px;
+  margin-top:200px;
+  height:100%;
+  background-color: #fff;
+}
+.Recommendations{
+  margin:0 auto;
+  width:1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.recom-detail{
+  margin-bottom: 20px;
+}
+.change{
+  margin-bottom:20px;
+}
+.recom-detail,.recom-body{
+  padding-bottom: 20px;
+}
+.recom{
+  cursor: pointer;
+  margin:0 auto;
+  margin-top:20px;
+  border:1px solid #a6a6a6;
+  width:95%;
+  padding:20px;
+}
+.recom_name{
+  font-weight: bold;
+}
+.recom_type{
+  color: grey;;
+}
+.recom-title{
+  width: 100%;
+}
+.recombox{
+  width: 40%;
+  margin-left:20px;
+}
+.recombox .section-title1{
+  color: #000000;
+  font-size: 26px;
+  padding-top: 40px;
+}
+.recombox strong{
+  display: block;
+  font-weight: normal;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  position: relative;
+}
+.recombox strong::before {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: #4177b7;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  border-radius: 10px;
+}
+a{
+  outline: none;
+  direction: none;
+}
+  .topRecommendations {
+    width: 600px;
+    padding: 50px 80px;
+    display: none;
+  }
+.recommendbox{
+    width: 31%;
+    position: absolute;
+    margin-left:150px;
+}
+.recommendbox .section-title1{
+    color: #000000;
+    font-size: 26px;
+    padding-top: 40px;
+}
+.recommendbox strong{
+    display: block;
+    font-weight: normal;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    position: relative;
+}
+.recommendbox strong::before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 5px;
+    background: #4177b7;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    border-radius: 10px;
+}
+  .classic_recommendations{
+    width: 600px;
+    color:#fff;
+    padding: 50px 80px;
+    margin-top:150px;   
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+.classic_recommendations .cour{
+    width:150px;
+    margin:10px;
+    height:80px;
+    box-sizing: border-box;
+}
+.cour .class{
+    text-align: center;
+    width:100x;
+    height:60px;
+    position: relative;
+    padding: 20px 15px 30px 30px;
+    background: #fafafa;
+    background-color: #fafafa;
+    border: 1px solid #e6e6e6;
+    transform: 0.5s;
+
+}
+.class span{
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: normal;
+  transform: 0.5s;
+  position: relative;
+  color:#333333;
+  font-family: 'Tinos', serif;
+}
+.class span:hover{
+  color: #4B70E2;
+  cursor: pointer;
+}
+section{
+  margin-top:100px;
+}
+  .topRecommendations .card-stack {
+    width: 500px;
+    height: 250px;
+    position: relative;
+    margin: 20px auto;
+  }
+  .topRecommendations .card-stack .buttons {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.46);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    left: 0;
+    top: 55%;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 22px;
+    z-index: 100;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  .topRecommendations .card-stack .buttons:hover {
+    transform: scale(1.3, 1.3);
+  }
+  .topRecommendations .card-stack .prev {
+    left: 15px;
+    right: auto;
+  }
+  .topRecommendations .card-stack .next {
+    left: auto;
+    right: 15px;
+  }
+  .topRecommendations .card-stack .carousel .buttons:hover {
+    color: #C01313;
+    background: #fff;
+  }
+  .topRecommendations .card-stack .card-list {
+    width: 300px;
+
+  }
+  .topRecommendations .card-stack .card-list__image {
+    height: 200px;
+    width:355px;
+  }
+  .topRecommendations .card-stack .card-list__text {
+   color: #333333;
+   width:150px;
+   height:200px;
+   overflow: hidden;
+    text-overflow: ellipsis;
+   font-weight: 300;
+  }
+  .topRecommendations .card-stack .card-list__text a{
+    color: #333333;
+   }
+   .topRecommendations .card-stack .card-list__text a:hover{
+    color: #4B70E2;
+   }
+  .topRecommendations .card-stack .card-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 100ms ease-in-out;
+    border-radius: 10px;
+    position: absolute;
+    list-style: none;
+    height: 300px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+    -webkit-box-shadow: 0 2px 15px 1px rgba(225, 225, 225, 0.5);
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.5);
+  }
+  .topRecommendations .card-stack .card-list li:nth-child(1) {
+    top: 24px;
+    width: 60%;
+    /* animation: scaleCard 100ms; */
+  }
+  .topRecommendations .card-stack .card-list li:nth-child(2) {
+    top: 36px;
+    width: 70%;
+  }
+  .topRecommendations .card-stack .card-list li:nth-child(3) {
+    top: 48px;
+    width: 80%;
+  }
+  .topRecommendations .card-stack .card-list li:nth-child(4) {
+    top: 60px;
+    width: 90%;
+  }
+  .topRecommendations .card-stack .card-list li:nth-child(5) {
+    top: 72px;
+    width: 100%;
+  }
+  .topRecommendations .card-stack:hover > .buttons.prev {
+    display: block;
+    animation: bounceInLeft 200ms;
+  }
+  .topRecommendations .card-stack:hover > .buttons.next {
+    display: block;
+    animation: bounceInRight 200ms;
+  }
+  .transformThis {
+    animation: scaleDown 500ms;
+  }
+  .transformPrev {
+    animation: scaleUp 100ms;
+    display: none;
+  }
+  @keyframes scaleUp {
+    0% {
+      transform: scale(1.2) translateY(50px);
+      opacity: 0;
+    }
+    20% {
+      transform: scale(1.15) translateY(40px);
+      opacity: 0.1;
+    }
+    40% {
+      transform: scale(1.1) translateY(30px);
+      opacity: 0.2;
+    }
+    60% {
+      transform: scale(1.05) translateY(20px);
+      opacity: 0.4;
+    }
+    80% {
+      transform: scale(1.01) translateY(10px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes scaleDown {
+    0% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+    20% {
+      transform: scale(1.01) translateY(20px);
+      opacity: 0.8;
+    }
+    40% {
+      transform: scale(1.05) translateY(40px);
+      opacity: 0.4;
+    }
+    60% {
+      transform: scale(1.1) translateY(60px);
+      opacity: 0.2;
+    }
+    80% {
+      transform: scale(1.15) translateY(80px);
+      opacity: 0.1;
+    }
+    100% {
+      transform: scale(1.2) translateY(100px);
+      opacity: 0;
+    }
+  }
+  @keyframes scaleCard {
+    0% {
+      top: 5px;
+    }
+    100% {
+      top: 24px;
+    }
+  }
+  @keyframes bounceInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes bounceInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }

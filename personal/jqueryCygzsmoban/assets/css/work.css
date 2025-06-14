@@ -1,0 +1,114 @@
+
+#app li{
+    cursor: pointer;
+    margin:0 auto;
+    margin-top:20px;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    padding:20px 20px 20px 0;
+    color: #ffffff;
+  }
+  #app ul{
+    border-left:2px solid#ffffff;
+    margin-left:150px;
+  }
+  .items{
+    border:2px solid #dfdfdf;
+    border-radius: 20px;
+    width:80%;
+    height:88px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background-color: #485d9f;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  .items:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+  .times{
+    display: flex;
+    justify-content: space-between;
+    margin-right:50px;
+  }
+.history-red-round {
+    position: relative;
+    width:8px;
+    height:12px;
+    margin-right:70px;
+}
+  .bg-darks{
+    margin-bottom: 121px;
+  }
+  .item-name{
+    font-weight: bold;
+  }
+  .head{
+    width:80%;
+    margin:0 auto;
+    margin-top:200px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .head-left{
+    text-align:center;
+  }
+  .head-left h1{
+	font-size:40px; 
+	font-weight:bolder;
+	-webkit-text-stroke:1px #ffffff;
+	-webkit-text-fill-color:transparent; 
+  }
+  .head-right{
+    display: flex;
+    justify-content: space-between;
+  }
+  #app{
+    width:80%;
+    margin:0 auto;
+    margin-top:30px;
+  }
+  .search-right{
+    background-color: white;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 2px 4px 1px rgba(0,0,0,.09);
+    width: 300px;
+    height: 40px;
+    border-radius: 15px 15px;
+}
+#searchInput{
+  width: 80%;
+  height: 100%;
+  display: block;
+  border-radius: 15px 15px;
+  float: left;
+  border: none;
+  outline: none;
+  margin-left:5px;
+}
+.search-right img{
+  height:38px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+  float: right;
+  filter: invert(37%) sepia(44%) saturate(2659%) hue-rotate(213deg) brightness(95%) contrast(86%);
+}
+a{
+  text-decoration: none;
+}
+
+p a{
+  color:#333;
+}
+#app h2{
+  color:#fff;
+  font-family: FZYaoti;
+}
+#app h3{
+  color:#bababa;
+  font-family: FZYaoti;
+}
+

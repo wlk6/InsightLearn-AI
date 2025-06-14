@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sambat Dark - Blog</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/work.css">
+  <link rel="stylesheet" href="assets/css/button.css">
+  <style>
+    .item-name,
+    .item-type {
+      z-index: 2;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .text-folio {
+      position: absolute;
+      top: calc(100% - 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .text-1 {
+      position: absolute;
+      font-family: 'Poppins', sans-serif !important;
+      color: transparent !important;
+      font-weight: 900;
+      font-size: 30px;
+      letter-spacing: 2px;
+      -webkit-text-stroke: 1px #fff;
+      z-index: 4 !important;
+      left: 50%;
+      top: 85%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%)
+    }
+
+    .text-2 {
+      position: absolute;
+      font-family: 'Poppins', sans-serif !important;
+      color: #4b70e24a !important;
+      font-weight: 900;
+      font-size: 30px;
+      letter-spacing: 2px;
+      z-index: 1;
+      left: 50%;
+      top: 85%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -o-transform: translateX(-50%)
+    }
+
+    .grid-item {
+      position: relative;
+      transition: transform 0.5s ease;
+      padding: 50px;
+      z-index: 2;
+      background-color: #eee;
+      color: #000;
+      border-radius: 5px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 4px 6px 8px 3px rgb(135 135 135 / 29%);
+    }
+
+    #grid-item:hover {
+      color: #4B70E2;
+      cursor: pointer !important;
+      transform: translateY(-20px);
+
+    }
+
+    .grid-item:nth-child(4n+1),
+    .grid-item:nth-child(4n+4) {
+      height: 150px;
+      margin-bottom: 50px;
+    }
+
+    .grid-item:nth-child(4n+2),
+    .grid-item:nth-child(4n+3) {
+      height: 200px;
+      margin-bottom: 50px;
+    }
+
+    .grid-item:nth-child(4n+3) {
+      margin-top: -50px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .grid-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Start Preload -->
+  <div class="preloader"></div>
+  <div class="block-1"></div>
+  <div class="block-2"></div>
+  <div class="logo-load"><img src="assets/img/logo1.svg" alt=""></div>
+  <div class="logo-load spinning"></div>
+  <div class="over-all"></div>
+  <!-- End Preload --><!-- Start Header -->
+  <header>
+    <nav><!-- Logo -->
+      <div class="logo hover-target"><a class="load-spiral" href="index.html"><img src="assets/img/logo.svg"
+            alt="logo"></a></div>
+      <!-- Menu bar -->
+      <div class="toggle-btn magnetic hover-target">
+        <div class="burger-menu"><span class="one"></span><span class="two"></span><span class="tre"></span></div>
+      </div>
+      <!-- Social -->
+      <div class="scr socials">
+        <div class="list-social">
+          <ul>
+            <li class="hover-target"><a href="#">COUSE.</a></li>
+            <li class="hover-target"><a href="#">R.</a></li>
+            <li class="hover-target"><a href="#">Q.</a></li>
+            <li class="hover-target"><a href="#">A.</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="scr copyright-top">
+        <p>教育 &copy;2024</p>
+      </div>
+      <div class="bg-nav"></div>
+      <!-- menu -->
+      <div class="manu-container">
+        <div class="menu">
+          <div class="data">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="links text-center text-lg-left">
+                    <ul>
+                      <li>
+                        <p>01</p>
+                        <a class="menu-link hover-target load-spiral" href="index-2.html">收藏</a>
+                      </li>
+                      <li>
+                        <p>02</p>
+                        <a class="menu-link hover-target load-spiral" href="index-3.html">喜欢</a>
+                      </li>
+                      <li>
+                        <p>03</p>
+                        <a class="menu-link hover-target load-spiral" href="work.html">浏览记录</a>
+                      </li>
+                      <li>
+                        <p>04</p>
+                        <a class="menu-link hover-target load-spiral" href="work-detail.html">离线缓存</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- End Header --><!-- Start Content -->
+  <div id="spiral"><!-- Header -->
+    <div class="scrolls"><img draggable="false" src="assets/img/sroll.svg" alt="scroll"></div>
+    <div class="main-head centered luxy-el" data-speed-y="5" data-offset="0">
+      <div id="headmove"></div>
+      <div class="cache"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <h3 class="detail-pinyin" style="letter-spacing: 6px;">lí xiàn huǎn cún</h3>
+            <h3 class="detail-title">离 线 缓 存</h3>
+            <h3 class="detail-title">offline cache</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="bg-darks">
+      <div id="app">
+        <div class="head">
+          <div class="head-left">
+            <h1>离线缓存</h1>
+          </div>
+          <div class="head-right">
+            <div class="buttons">
+              <button class="blob-btn" @click="clearHistory">
+                清空缓存
+                <span class="blob-btn__inner">
+                  <span class="blob-btn__blobs">
+                    <span class="blob-btn__blob"></span>
+                    <span class="blob-btn__blob"></span>
+                    <span class="blob-btn__blob"></span>
+                    <span class="blob-btn__blob"></span>
+                  </span>
+                </span>
+              </button>
+              <br />
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- <div style="font-size: 20px;margin-bottom: 10px;">已缓存的试卷</div> -->
+          <div style="text-align: center;display: none;margin-top: 70px;" id="kong">
+            <img src="../../oo/image/kong.png" style="width: 450px;">
+            <h1 style="color: white;">暂无缓存记录~</h1>
+          </div>
+          <div class="grid-container">
+            <div class="grid-item" id="grid-item" v-for="(exam, index) in examList" @click="navigateToPage(exam)">
+              <div class="item-name">{{ exam.exam_name||exam.work_name}}</div>
+              <div class="item-type">{{ exam.exam_type||exam.work_type}}</div>
+              <div class="text-folio text-center">
+                <h2 class="text-1">{{formatDate(exam.time)}}</h2>
+                <h2 class="text-2">{{formatDate(exam.time)}}</h2>
+              </div>
+            </div>
+          </div>
+          <div class="end" style="text-align: center;color:#fff;margin: auto;">
+            已经到底了
+          </div>
+          <!-- <div style="border: 1px solid black;width: 940px;height: 70px;margin: 0px auto 15px auto;padding-left:10px;" id="fk" v-for="(exam, index) in examList" @click="navigateToPage(exam)"> -->
+          <!-- <div style="width: 100%;height: 100%;line-height: 70px;" id="exam" v-for="(item, index) in items" :key="index">{{item}}
+          </div> -->
+          <!-- <h3 style="height: 70px;line-height: 70px;" >
+            {{ exam.exam_name }}
+          </h3>
+        </div> -->
+          <!-- <div  id="exam">
+          <div class="grid-container">
+            <div class="grid-item" id="grid-item" v-for="(item, index) in items" :key="index" @click="navigateToPage(item)">
+              <div class="item-name">{{ item.exam_name}}</div>
+              <div class="item-type">{{ item.exam_type}}</div>
+              <div class="text-folio text-center">
+                <h2 class="text-1">{{formatDate(item.time)}}</h2>
+                <h2 class="text-2">{{formatDate(item.time)}}</h2>
+              </div>
+            </div>
+          </div>
+      </div> -->
+
+        </div>
+    </section>
+  </div>
+  <!-- End Content --><!-- Toggle menu -->
+  <div class="menus">
+    <a class="hover-target" href="../../oo/index.html">首页</a>
+    <a class="hover-target" href="about.html">个人中心</a>
+    <a class="hover-target" href="modify.html">修改个人信息</a>
+    <a class="hover-target" href="index-2.html">收藏</a>
+    <a class="hover-target" href="index-3.html">喜欢</a>
+    <a class="hover-target" href="work.html">浏览记录</a>
+    <button class="hover-target rm" id="byebye">退出登录</button>
+  </div>
+  <div class="menu__toggler hover-target magnetic"><span></span></div>
+  <!-- Cursor -->
+  <div class="cursor1" id="cursor1"></div>
+  <div class="cursor" id="cursor"></div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+  <script src="assets/js/plugin.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script type="text/javascript">
+    Vue.config.productionTip = false;
+    new Vue({
+      el: '#app',
+      data: {
+
+        examList: []
+
+
+      },
+      methods: {
+        fn() {
+          const token = localStorage.getItem("token");
+          axios.post('http://49.234.190.148:8888/course/UserCacheView/', null, {
+            headers: {
+              'token': `${token}`,
+            }
+          }).then(response => {
+            this.examList = response.data.data;
+            var kong = document.getElementById("kong");
+            var end = document.querySelector(".end");
+            if (this.examList.length == 0) {
+
+              kong.style.display = "block";
+
+              end.style.display = "none";
+            }
+            if (this.examList.length != 0) {
+              kong.style.display = "none";
+              end.style.display = "block";
+            }
+            console.log(this.examList);
+          })
+            .catch(error => {
+
+              console.error(error);
+            });
+          //.then(response => {
+          //   console.log(response)
+          //     this.items = response.data.data;
+          //   console.log(this.items)  
+          // }).catch(error => {
+          //   console.log(error)
+          // })
+        },
+        navigateToPage(item) {
+          if (item.exam_id && item.exam_type) {
+            window.location.href = `../../../../oo/exam/exam/test/html/exam_id_${item.exam_id}.html`;
+          } else if (item.work_id && item.work_name) {
+            window.location.href = `../../../../oo/exam/exam/test/html/work_id_${item.work_id}.html`;
+          }
+        },
+        formatDate(dateStr) {
+          const date = new Date(dateStr);
+          const year = date.getFullYear();
+          const month = (date.getMonth() + 1).toString().padStart(2, '0');
+          const day = date.getDate().toString().padStart(2, '0');
+          const hours = date.getHours().toString().padStart(2, '0');
+          const minutes = date.getMinutes().toString().padStart(2, '0');
+          return `${year}-${month}-${day} ${hours}:${minutes}`;
+        },
+        checkOnlineStatus() {
+          return navigator.onLine ? 'online' : 'offline';
+        },
+        checkCache() {
+          var end = document.querySelector(".end");
+          var kong = document.getElementById("kong");
+          return new Promise((resolve, reject) => {
+            
+            caches.open('my-cache').then(cache => {
+              cache.match('../../oo/exam/exam/test/html/offline-data.txt').then(response => {
+                if (response) {
+                  response.text().then(text => {
+                    console.log('从缓存中获取数据：', JSON.parse(text));
+
+                    kong.style.display = "none";
+
+                    end.style.display = "block";
+                    this.examList = JSON.parse(text);
+                    console.log(this.examList);
+                    resolve();
+                  });
+                } else {
+
+                  kong.style.display = "block";;
+                  end.style.display = "none";
+                  console.log('缓存中没有数据');
+                  resolve();
+                }
+              });
+            });
+          });
+        },
+        clearHistory() {
+          var end = document.querySelector(".end");
+          var kong = document.getElementById("kong");
+          if (this.checkOnlineStatus() == 'offline') {
+            console.log('清空缓存')
+            this.examList = [];
+            kong.style.display = "block";
+            end.style.display = "none";
+            //清空缓存中的数据
+            caches.keys().then(function (cacheNames) {
+              return Promise.all(
+                cacheNames.map(function (cacheName) {
+                  return caches.delete(cacheName);
+                })
+              );
+            });
+          }
+          else {
+            const token = localStorage.getItem('token');
+            axios.post('http://49.234.190.148:8888/course/DelAllCached/', null, {
+              headers: {
+                'token': token
+              }
+            })
+              .then(response => {
+                console.log(response);
+                this.fn();
+                caches.keys().then(function (cacheNames) {
+                  return Promise.all(
+                    cacheNames.map(function (cacheName) {
+                      return caches.delete(cacheName);
+                    })
+                  );
+                });
+              })
+              .catch(error => {
+                console.error('Failed to clear history:', error);
+              });
+
+          }
+        }
+
+      },
+
+      mounted() {
+        // if (this.checkOnlineStatus() == 'online'){
+        //   this.fn();}
+        // else {
+        //    async function checkCache() {
+        //   const cache = await caches.open('my-cache');
+        //   const response = await cache.match('../../oo/exam/exam/test/html/offline-data.txt');
+        //   if (response) {
+        //     const text = await response.text();
+        //     console.log('从缓存中获取数据：', JSON.parse(text));
+        //     this.examList = JSON.parse(text);
+        //     console.log(this.examList);
+        //   } else {
+        //     console.log('缓存中没有数据');
+        //   }
+        // }
+
+        this.checkCache();
+        // }
+      }
+
+
+    })
+  </script>
+  <script>
+
+
+
+    //  axios({
+    //     url: 'http://192.168.1.142:8000/course/generate_answer/',
+    //     headers: { 'token': `${token}` },
+    //     method: 'POST',
+    //     data: {
+    //       title: 'exam',
+    //     }
+    //   }).then(response => {
+    //     var value = localStorage.getItem("exam");
+    //     if (value == null) {
+    //       document.getElementById("kong").style.display = "block";
+    //       document.getElementById("fk").style.display = "none";
+    //     } else {
+    //       document.getElementById("kong").style.display = "none";
+    //       document.getElementById("fk").style.display = "block";
+    //     }
+    //       // 请求成功处理
+    //       console.log('Response data:', response.data);
+    //     })
+    //     .catch(error => {
+    //       // 请求失败处理
+    //       console.error('Error:', error);
+    //     });
+    // var exam=document.getElementById("exam");
+    // exam.onclick=function(){
+    //   window.location.href="../../oo/exam/exam/test/html/exam_id_1.html";
+    // }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const logoutButton = document.getElementById('byebye');
+      logoutButton.addEventListener('click', function () {
+        localStorage.removeItem('userData');
+        localStorage.removeItem('token');
+        window.location.href = "../../login/log/log.html";
+      });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<!-- Start Preload -->
+<div class="preloader"></div>
+<div class="block-1"></div>
+<div class="block-2"></div>
+<div class="logo-load"><img src="assets/img/logo1.svg" alt=""></div>
+<div class="logo-load spinning"></div>
+<div class="over-all"></div>
+<!-- End Preload -->
+<div id="spiral">
+  <div class="main-head">
+    <div id="headmove">
+      <div data-depth="0.2">
+        <div class="bg-error">
+            <img src="assets/img/error.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="error-page text-center">
+      <h2>404</h2>
+      <p>Error Page not found</p>
+      <a href="../../oo/index.html" class="load-spiral hover-target">回到首页</a></div>
+  </div>
+</div>
+<!-- Toggle menu -->
+<div class="menus">
+  <a class="hover-target" href="../../oo/index.html">首页</a>
+  <a class="hover-target" href="about.html">个人中心</a>
+    <a class="hover-target" href="modify.html">修改个人信息</a>
+    <a class="hover-target" href="index-2.html">收藏</a>
+    <a class="hover-target" href="index-3.html">喜欢</a>
+    <a class="hover-target" href="work.html">浏览记录</a>
+    <a class="hover-target" href="work-detail.html">离线缓存</a>
+    <button class="hover-target rm"id="byebye">退出登录</button>
+  </div>
+  <div class="menu__toggler hover-target magnetic"><span></span></div>
+  <script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+  <script src="assets/js/plugin.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const logoutButton = document.getElementById('byebye');
+    logoutButton.addEventListener('click', function() {
+      localStorage.removeItem('userData');
+    localStorage.removeItem('token');
+      window.location.href = "../../login/log/log.html";
+    });
+  });
+  </script>
+</body>
+</html>

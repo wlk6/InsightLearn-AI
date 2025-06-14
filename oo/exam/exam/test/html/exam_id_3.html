@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>试卷</title>
+    <link rel="stylesheet" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <!-- <link href="../../../../../../../../fontawe/css/all.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style type="text/css">
+        .testCon {
+            padding: 5px 15px;
+        }
+
+        h4.tesTitle {
+            color: #4b70e2;
+        }
+
+        .test-form-box {
+            max-height: 660px;
+            overflow: auto;
+        }
+
+        .assignment {
+            margin: 30px 0 60px;
+            text-align: center;
+        }
+
+        .assignment .btn {
+            background: #4b70e2;
+            width: 120px;
+            font-size: 18px;
+            border-color: #4b70e2;
+        }
+
+        #testForm .testCon:nth-child(odd) {
+            background: white;
+        }
+
+        label {
+            font-weight: normal;
+        }
+
+        .jxz-title {
+            text-align: justify;
+        }
+
+        .topic-answer {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div style="float: left;margin-top: 20px;"> -->
+        <img src="../../../../image/glass.png" title="离线缓存"
+            style="width: 18px;display: block;margin-top: 15px;float: left;cursor: pointer;" id="lxhc">&nbsp;
+            <span style="position: absolute;top: 15px;">
+                <p style="font-size: 12px;display: none;" id="ts">已缓存</p>
+            </span>
+        <!-- </div> -->
+        <div style="width: auto;float: right;margin-top: 20px;">
+            <div class="far fa-heart" style="color: #4b70e2;float: left;margin-right: 30px;" id="fheart"></div>
+            <div class="far fa-star" style="color: #4b70e2;float: left;margin-right: 30px;" id="fstar"></div>
+        </div>
+        <div class="row clearfix" id="testArea">
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../js/test3.js"></script>
+    <script>
+        axios({
+            url: 'http://49.234.190.148:8888/course/ReflectELikeAndFavorite/',
+            headers: { 'token': `${token}` },
+            method: 'POST',
+            data: {
+                exam_id: 3,
+            }
+        }).then(function (response) {
+            console.log(response.data.liked);
+            console.log(response.data.favorite);
+            if (response.data.liked) {
+                $('#fheart').removeClass("far fa-heart").addClass("fas fa-heart");
+            }
+            if (response.data.favorite) {
+                $('#fstar').removeClass("far fa-star").addClass("fas fa-star");
+            }
+             if (response.data.cached) {
+                var ts = document.getElementById('ts');
+                ts.style.display = 'block';
+            }
+
+        })
+            .catch(function (error) {
+                console.error(error);
+            });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            //题型    1单选2多选3判断4填空5问答8论述题6完型填空7阅读理解
+            //json    格式参照data/test.json
+            //交卷    点击交卷后可查看对错
+            var test_id = 'get a test id';
+            test(test_id);
+        });
+        $('.fa-heart').click(function () {
+            if ($(this).hasClass("far fa-heart")) {
+                $(this).removeClass("far fa-heart").addClass("fas fa-heart");
+                axios({
+                    url: 'http://49.234.190.148:8888/course/ExamLikeView/',
+                    headers: { 'token': `${token}` },
+                    method: 'POST',
+                    data: {
+                        exam_id: 3,
+                    }
+                }).then(function (response) {
+                    console.log('点赞成功:', response.data);
+                })
+                    .catch(function (error) {
+                        console.error('点赞失败:', error);
+                    });
+            } // 切换按钮的颜色
+            else {
+                $(this).removeClass("fas fa-heart").addClass("far fa-heart");
+                axios({
+                    url: 'http://49.234.190.148:8888/course/ExamLikeView/',
+                    headers: { 'token': `${token}` },
+                    method: 'POST',
+                    data: {
+                        exam_id: 3,
+                    }
+                }).then(function (response) {
+                    console.log('取消点赞:', response.data);
+                })
+                    .catch(function (error) {
+                        console.error('点赞失败:', error);
+                    });
+            }
+        });
+        $('.fa-star').click(function () {
+            if ($(this).hasClass("far fa-star")) {
+                $(this).removeClass("far fa-star").addClass("fas fa-star");
+                axios({
+                    url: 'http://49.234.190.148:8888/course/ExamFavoriteView/',
+                    headers: { 'token': `${token}` },
+                    method: 'POST',
+                    data: {
+                        exam_id: 3,
+                    }
+                }).then(function (response) {
+                    console.log('收藏成功:', response.data);
+                })
+                    .catch(function (error) {
+                        console.error('取消收藏:', error);
+                    });
+
+            }// 切换按钮的颜色
+            else {
+                $(this).removeClass("fas fa-star").addClass("far fa-star");
+                axios({
+                    url: 'http://49.234.190.148:8888/course/ExamFavoriteView/',
+                    headers: { 'token': `${token}` },
+                    method: 'POST',
+                    data: {
+                        exam_id: 3,
+                    }
+                }).then(function (response) {
+                    console.log('取消收藏:', response.data);
+                })
+                    .catch(function (error) {
+                        console.error('取消失败:', error);
+                    });
+            }
+        });    
+          var lxhc = document.getElementById('lxhc');
+            lxhc.onclick = function () {
+                axios({
+                    url: 'http://49.234.190.148:8888/course/CacheCourse/',
+                    headers: { 'token': `${token}` },
+                    method: 'POST',
+                    data: {
+                        url: 'http://49.234.190.148:8889/oo/exam/exam/test/html/exam_id_3.html',
+                        exam_id: 3,
+                    }
+                }).then(function (response) {
+                      var ts = document.getElementById('ts');
+                    ts.style.display = 'block';
+                    console.log('离线缓存成功:', response.data); 
+                     axios.post('http://49.234.190.148:8888/course/UserCacheView/', null, {
+                    headers: {
+                        'token': `${token}`,
+                    }
+                }).then(response => {
+                    if ('serviceWorker' in navigator) {
+                        window.addEventListener('load', () => {
+                            navigator.serviceWorker.register('../js/service-worker.js')
+                                .then(registration => {
+                                    console.log('Service Worker 注册成功');
+                                })
+                                .catch(error => {
+                                    console.error('Service Worker 注册失败:', error);
+                                });
+                        });
+                        if (response.data.data.length > 0) {
+                            // 缓存数据
+                            const cacheData = response.data.data;
+                            caches.open('my-cache').then(cache => {
+                                cache.put('offline-data.txt', new Response(JSON.stringify(cacheData)));
+                            });
+                        }
+                    }
+                })
+                    .catch(error => {
+                        console.error(error);
+                    });
+                })
+                    .catch(function (error) {
+                        console.error('离线缓存失败:', error);
+                    });
+              }
+    </script>
+</body>
+
+</html>

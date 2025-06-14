@@ -1,0 +1,187 @@
+.mySwbox-main{
+    margin-top:200px!important;
+    width:80%;
+    margin:0 auto;
+    background-color: #fff;
+}
+  
+.mySwbox{
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding: 35px 10px 0;
+    width: 100%;
+    height: 100%;
+   
+}
+.poem{
+    margin-top:150px;
+    color: #000000;
+    box-shadow: 0 0.5rem 1.5rem rgba(85, 85, 85, 0.25), 0 0.5rem 0.5rem rgba(85, 85, 85, 0.25);
+}
+.poem #hh2{
+    float:right;
+    margin-bottom: 2px;
+}
+.poem h2{
+    font-size:40px;
+    color: #828282;
+}
+.poem1,.poem2,.poem3{
+    margin:20px 20px 20px 20px;
+    font-family: serif;
+    font-size:20px;
+}
+.origin{
+    text-align: right;
+    font-family: serif;
+    font-size:15px;
+}
+.titlebox{
+    width: 40%;
+    position: absolute;
+    left: 10px;
+    top: 5%;
+}
+.titlebox .section-title1{
+    color: #000000;
+    font-size: 26px;
+    padding-top: 40px;
+}
+.titlebox strong{
+    display: block;
+    font-weight: normal;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    position: relative;
+}
+.titlebox strong::before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 5px;
+    background: #4177b7;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    border-radius: 10px;
+}
+.swiper-poem {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+.gallery-top {
+    height: 80%;
+    width: 100%;
+}
+.gallery-thumbs {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+.gallery-thumbs .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 1;
+}
+.gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+}
+.slide .text{ 
+    width: 45%;
+    font-family: STKaiti;   
+    color:#000000; 
+    padding-top: 15%; 
+    overflow: hidden; 
+    padding-right: 5%;
+    flex-shrink: 0;
+}
+
+.slide{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right:20px;
+}
+.mySwbox-thumbs{
+    background-color: #fff;
+    box-shadow: 0 0 10px #ddd;
+     margin-top: 25px;
+}
+.mySwbox-thumbs .gallery-thumbs{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.gallery-thumbs .swiper-slide{
+    flex: 1;
+    position: relative;
+    transition: all ease .5s;
+    cursor: pointer;
+    display: flex;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    padding: 20px;
+    border-right: 1px solid #ebebeb;
+}
+.gallery-thumbs .swiper-slide.swiper-slide-thumb-active::before {
+width: 100%;
+}
+.gallery-thumbs .swiper-slide:before {
+width: 0;
+height: 100%;
+background: #4177b7;
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+transition: all 0.5s;
+}
+.gallery-thumbs .slide-icon {
+display: flex;
+}
+.gallery-thumbs .swiper-slide.swiper-slide-thumb-active .text {
+color: #FFF;
+}
+
+.gallery-thumbs .swiper-slide .text {
+position: relative;
+z-index: 999;
+padding-left: 25px;
+color: #000000;
+}
+.gallery-thumbs .swiper-slide .text h2 {
+font-size: 16px;
+margin: 0;
+line-height: 30px;
+}
+.gallery-thumbs .swiper-slide:last-child {
+border-right: 0;
+}
+
+
+@media (max-width:992px) {
+.mySwbox-thumbs .gallery-thumbs{padding: 10px;}
+.gallery-thumbs .swiper-slide{padding: 10px;}
+.titlebox .section-title1{font-size: 24px;}
+.gallery-thumbs .swiper-slide .text{padding-left: 15px;}
+}
+@media (max-width:768px) {
+.mySwbox-thumbs{margin-left: 10px;margin-right: 10px;}
+.mySwbox{padding-top: 15px;}
+.titlebox .section-title1 {font-size: 24px;padding: 0;}
+.slide .text{width: 100%;padding-top: 20px;padding-right: 0;}
+.slide{flex-direction: column;}
+.titlebox {width: 100%;position: relative;left: 0;top: 5%;z-index: 10;}
+.gallery-thumbs .swiper-slide .text{display: none;}
+.gallery-thumbs .slide-icon{width: 100%;}
+.mySwbox-main{padding: 5px 0 30px 0;}
+.gallery-thumbs .swiper-slide{margin-right: 0 !important;}
+}

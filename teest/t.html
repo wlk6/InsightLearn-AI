@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <li v-for="(exam, index) in examList" :key="index" class="exam-item" id="exam">
+        <span>{{ exam.exam_name }}</span>
+    </li> -->
+    <div id="app">
+        <ul>
+            <div v-for="(item, index) in examList">{{ item }}</div>
+            
+            
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="text/javascript">
+        Vue.config.productionTip = false;
+        new Vue({
+            el: '#app',
+            data: {
+        
+                    examList: [
+                        { "exam_id": 3, "exam_name": "测验0227", "exam_type": "语文", "time": "2024-05-08T02:53:52" }, 
+                        { "exam_id": 1, "exam_name": "2019普通试验班混合式考试线上部分", "exam_type": "语文", "time": "2024-05-08T02:50:22" }
+                    ]
+            
+            }
+            
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html>

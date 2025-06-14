@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/demo.css">
+
+
+</head>
+
+<body class="light">
+    <div class="z-container">
+        <div class="main">
+            <div class="container a-container" id="a-container">
+                <form class="form" id="a-form" method="post" action="">
+                    <h2 class="form_title title">账户注册</h2>
+
+                    <div class="ipl">
+
+                    </div>
+                    <input class="form__input" type="text" placeholder="设置用户名" id="yhm">
+                    <input class="form__input" type="text" placeholder="输入手机号" id="pho">
+                    <input class="form__input" type="text" placeholder="输入邮箱" id="email">
+                    <div style="width: 350px;">
+                        <input class="form__input1" type="text" placeholder="邮箱验证码" id="em-yzm">
+                        <div class="yzm">发送邮箱验证码</div>
+                    </div>
+                    <input class="form__input" type="password" placeholder="设置6-16位字母数字下划线组合" id="pword">
+                    <input class="form__input" type="password" placeholder="再次输入密码" id="pword1">
+                    <button class="form__button button submit" style="cursor: pointer;" id="signup">注册</button>
+                </form>
+                <div class="motal" id="motal1">
+                    <div class="success" style="width:100px;height:100px;margin:0 auto;margin-top:100px;">
+                        <img src="../related/success.png" style="width:100%;height: 100%;" alt="">
+                    </div>
+                    <div style="text-align: center;">注册成功，请登录！</div>
+                </div>
+            </div>
+
+            <div class="container b-container" id="b-container">
+                <div class="form" id="log">
+                    <form id="b-form" method="post" action="" class="form">
+                        <h2 class="form_title title">账户登录</h2>
+                        <div class="ipl" id="mip">
+
+                        </div>
+                        <input class="form__input" type="text" placeholder="请输入邮箱号" id="sign-em">
+                        <input class="form__input" type="password" placeholder="请输入密码" id="sign-pd">
+                        <a class="form__link" style="cursor: pointer;">忘记密码?</a>
+                        <button class="form__button button submit n" id="signin">登录</button>
+                    </form>
+                    <div class="motal" id="motal2" style="width:330px;height:190px;">
+                        <div class="success" style="width:100px;height:100px;margin:0 auto;margin-top:10px;">
+                            <img src="../related/success.png" style="width:100%;height: 100%;" alt="">
+                        </div>
+                        <div style="text-align: center;">登录成功</div>
+                        <div class="loc" style="text-align: center;"></div>
+                    </div>
+                </div>
+                <div style="display: none;" class="form" id="czmm">
+                    <form class="form" id="c-form" method="" action="">
+                        <h2 h2 class="form_title title"> 重置密码</h2>
+                        <div class="ipl ipll">
+                        </div>
+                        <input class="form__input" type="text" placeholder="请输入邮箱号" id="sign-emm">
+                        <div style="width: 350px;">
+                            <input class="form__input1" type="text" placeholder="邮箱验证码" id="em-yzmm">
+                            <div class="yzm yzmm">发送邮箱验证码</div>
+                        </div>
+                        <input class="form__input" type="password" placeholder="请输入重置密码(数字字母下划线6-16位)" id="sign-pdd">
+                        <input class="form__input" type="password" placeholder="再次输入密码" id="pword11">
+                        <button class="form__button button submit signinn" style="cursor: pointer;"
+                            id="signinn">重置</button>
+                    </form>
+                    <div class="motal" id="motal3" style="width:330px;height:250px;">
+                        <div class="success" style="width:100px;height:100px;margin:0 auto;margin-top:50px;">
+                            <img src="../related/success.png" style="width:100%;height: 100%;" alt="">
+                        </div>
+                        <div style="text-align: center;">重置成功，请重新登录！</div>
+                    </div>
+                </div>
+            </div>
+            <div class="switch" id="switch-cnt">
+                <div class="switch__circle"></div>
+                <div class="switch__circle switch__circle--t"></div>
+                <div class="switch__container" id="switch-c1">
+                    <h2 class="switch__title title">欢迎 回来!</h2>
+                    <p class="switch__description description">To keep connected with us please login with your personal
+                        info</p>
+                    <button class="switch__button button switch-btn" id="btnn">登录</button>
+                </div>
+                <div class="switch__container is-hidden" id="switch-c2">
+                    <h2 class="switch__title title">你好 朋友!</h2>
+                    <p class="switch__description description">Enter your personal details and start journey with us</p>
+                    <button class="switch__button button switch-btn" id="zc">注册</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/stopExecutionOnTimeout.js"></script>
+    <script>
+        let switchCtn = document.querySelector("#switch-cnt");
+        let switchC1 = document.querySelector("#switch-c1");
+        let switchC2 = document.querySelector("#switch-c2");
+        let switchCircle = document.querySelectorAll(".switch__circle");
+        let switchBtn = document.querySelectorAll(".switch-btn");
+        let aContainer = document.querySelector("#a-container");
+        let bContainer = document.querySelector("#b-container");
+        let allButtons = document.querySelectorAll(".submit");
+
+        let getButtons = e => e.preventDefault();
+
+        let changeForm = e => {
+
+            switchCtn.classList.add("is-gx");
+            setTimeout(function () {
+                switchCtn.classList.remove("is-gx");
+            }, 1500);
+
+            switchCtn.classList.toggle("is-txr");
+            switchCircle[0].classList.toggle("is-txr");
+            switchCircle[1].classList.toggle("is-txr");
+
+            switchC1.classList.toggle("is-hidden");
+            switchC2.classList.toggle("is-hidden");
+            aContainer.classList.toggle("is-txl");
+            bContainer.classList.toggle("is-txl");
+            bContainer.classList.toggle("is-z200");
+        };
+
+        let mainF = e => {
+            for (var i = 0; i < allButtons.length; i++) {
+                if (window.CP.shouldStopExecution(0)) break;
+                allButtons[i].addEventListener("click", getButtons);
+            }
+            window.CP.exitedLoop(0);
+            for (var i = 0; i < switchBtn.length; i++) {
+                if (window.CP.shouldStopExecution(1)) break;
+                switchBtn[i].addEventListener("click", changeForm);
+            }
+            window.CP.exitedLoop(1);
+        };
+
+        window.addEventListener("load", mainF);
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/myjs.js"></script>
+
+
+</body>
+
+</html>
